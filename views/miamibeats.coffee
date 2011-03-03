@@ -18,19 +18,19 @@ class MiamiBeats
   update: (response) ->
     @beats = Number(response.responseJSON.beats)
     @date = new Date(Date.parse(response.responseJSON.date))
-    this.setBeatView @beats.toFixed()
-    this.setFractionView(@beats - @beats.toFixed())
+    this.setBeatView @beats
+    this.setFractionView(@beats - Math.floor(@beats))
     this.dateView().update @date.toLocaleDateString()
   setBeatView: (beats) ->
     @beatView ?= $('beats')
     @beatBar ?= $('beatBar')
-    @beatView.update beats
+    @beatView.update Math.floor(beats)
     @beatBar.setStyle
       width: "#{beats / 10}%"
   setFractionView: (fraction) ->
     @fractionView ?= $('fractionalBeats')
     @fractionBar ?= $('fractionBar')
-    @fractionView.update fraction
+    @fractionView.update Math.round(fraction * 1000)/1000
     @fractionBar.setStyle
       width: "#{fraction * 100}%"
   dateView: ->
