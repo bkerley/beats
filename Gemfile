@@ -9,6 +9,8 @@ gem "json"
 gem "coffee-script-source"
 gem "coffee-script"
 
+gem 'rdiscount'
+
 group :production do
   gem "therubyracer"
 end

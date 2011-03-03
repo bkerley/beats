@@ -18,6 +18,7 @@ GEM
     mime-types (1.16)
     rack (1.2.1)
     rake (0.8.7)
+    rdiscount (1.6.8)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     shotgun (0.9)
@@ -39,6 +40,7 @@ DEPENDENCIES
   heroku
   i18n
   json
+  rdiscount
   shotgun
   sinatra
   therubyracer
