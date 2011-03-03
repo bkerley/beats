@@ -8,6 +8,7 @@ GEM
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
     tilt (1.2.2)
+    tzinfo (0.3.24)
 
 PLATFORMS
   ruby
@@ -15,3 +16,4 @@ PLATFORMS
 DEPENDENCIES
   shotgun
   sinatra
+  tzinfo
