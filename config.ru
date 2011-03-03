@@ -12,4 +12,10 @@ get '/time' do
   miami_time.now.strftime "%D %T"
 end
 
+get '/seconds' do
+  now = miami_time.now
+  seconds = now - now.beginning_of_day
+  seconds.to_i.to_s
+end
+
 run Sinatra::Application
