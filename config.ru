@@ -3,6 +3,7 @@ require 'tzinfo'
 require 'active_support/time'
 require 'active_support/core_ext/float/rounding'
 require 'haml'
+require 'sass'
 require 'coffee-script'
 
 get '/' do
@@ -23,8 +24,17 @@ get '/beats' do
   current_beats.to_s
 end
 
+get '/beats.json' do
+  result = { :beats => current_beats, :date=>miami_time.strftime('%D')}
+  [200, { 'Content-type'=>'application/json'}, result.to_json]
+end
+
 get '/miamibeats.js' do
   coffee :miamibeats
+end
+
+get '/miamibeats.css' do
+  sass :miamibeats
 end
 
 helpers do

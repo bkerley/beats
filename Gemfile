@@ -10,6 +10,7 @@ gem "coffee-script-source"
 gem "coffee-script"
 
 gem 'haml'
+gem 'sass'
 gem 'rdiscount'
 
 group :production do
