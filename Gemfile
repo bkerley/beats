@@ -9,6 +9,7 @@ gem "json"
 gem "coffee-script-source"
 gem "coffee-script"
 
+gem 'haml'
 gem 'rdiscount'
 
 group :production do

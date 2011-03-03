@@ -6,6 +6,7 @@ GEM
       coffee-script-source
     coffee-script-source (1.0.1)
     configuration (1.2.0)
+    haml (3.0.25)
     heroku (1.18.1)
       json (~> 1.5.1)
       launchy (~> 0.3.2)
@@ -37,6 +38,7 @@ DEPENDENCIES
   activesupport
   coffee-script
   coffee-script-source
+  haml
   heroku
   i18n
   json
