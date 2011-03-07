@@ -4,7 +4,7 @@ require 'active_support/time'
 require 'active_support/core_ext/float/rounding'
 require 'haml'
 require 'sass'
-require 'coffee-script'
+require 'json'
 
 get '/' do
   haml :index
@@ -27,10 +27,6 @@ end
 get '/beats.json' do
   result = { :beats => current_beats, :date=>miami_time.strftime('%D')}
   [200, { 'Content-type'=>'application/json'}, result.to_json]
-end
-
-get '/miamibeats.js' do
-  coffee :miamibeats
 end
 
 get '/miamibeats.css' do

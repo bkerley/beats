@@ -3,7 +3,7 @@ document.observe 'dom:loaded', ->
   $('stopButton').on('click', (ev, el) ->
     beats.halt = 1
     el.hide()
-    )
+  )
 
 class MiamiBeats
   constructor: ->

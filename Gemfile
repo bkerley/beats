@@ -6,16 +6,10 @@ gem 'activesupport'
 gem 'i18n'
 
 gem "json"
-gem "coffee-script-source"
-gem "coffee-script"
 
 gem 'haml'
 gem 'sass'
 gem 'rdiscount'
-
-group :production do
-  gem "therubyracer"
-end
 
 group :development, :test do
   gem 'shotgun'
