@@ -26,7 +26,7 @@ class MiamiBeats
     @beatBar ?= $('beatBar')
     @beatView.update Math.floor(beats)
     @beatBar.setStyle
-      width: "#{beats / 10}%"
+      width: "#{beats / 10.0}%"
   setFractionView: (fraction) ->
     @fractionView ?= $('fractionalBeats')
     @fractionBar ?= $('fractionBar')

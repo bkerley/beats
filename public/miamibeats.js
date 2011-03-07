@@ -39,7 +39,7 @@
     this.beatBar = (typeof this.beatBar !== "undefined" && this.beatBar !== null) ? this.beatBar : $('beatBar');
     this.beatView.update(Math.floor(beats));
     return this.beatBar.setStyle({
-      width: ("" + (beats / 10) + "%")
+      width: ("" + (beats / 10.0) + "%")
     });
   };
   MiamiBeats.prototype.setFractionView = function(fraction) {
