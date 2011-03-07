@@ -1,9 +1,41 @@
-.bars
-  div
-    :height 20px
-    :color white
-    :background-color black
-    &.bar
-      :background-color #f0f
-      :z-index -1
-      :margin-top -20px
+@font-face
+  :font-family "TGL 31034-2"
+  :src url('TGL_31034-2.ttf')
+body  
+  :width 80%
+  :font-family 'TGL 31034-2'
+  :color white
+  :background black url('hdr.jpg') 
+  :background-size cover
+  :background-origin border-box
+  :font-size 1.5em
+  a:link, a:visited
+    :color #f0f
+    :text-decoration none
+  a:hover
+    :text-decoration underline
+  .rotationPart
+    :-webkit-transform translate(10%, 5%) rotate(-10deg)
+    :padding-top 50px
+    h1
+      :font-size 3em
+    .bars
+      div
+        :height 20px
+        :color white
+        :background-color black
+        :margin-top 0.5em
+        :padding-left 0.5em
+        :line-height 100%
+        &.bar
+          :padding-left 0
+          :background-color #f0f
+          :z-index -1
+          :margin-top -20px
+    .description
+      :background-color black
+      :padding 10px
+      :font-size 1.5em
+    #stopButton
+      :color black
+      :z-index -2
