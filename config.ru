@@ -22,7 +22,10 @@ get '/beats' do
 end
 
 get '/beats.json' do
-  result = { :beats => current_beats, :date=>miami_time.strftime('%D')}
+  result = {
+    beats: current_beats,
+    date: miami_time.now.rfc2822
+  }
   [200, { 'Content-type'=>'application/json'}, result.to_json]
 end
 

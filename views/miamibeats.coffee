@@ -7,23 +7,50 @@ document.observe 'dom:loaded', ->
 
 class MiamiBeats
   constructor: ->
-    @fetcher.bind(this).delay 1
-  fetcher: ->
-    return if @halt == 1
-    new Ajax.Request '/beats.json',
-      method: 'get',
-      onSuccess: (response) =>
-        this.update response
-    @fetcher.bind(this).delay 1
-  update: (response) ->
-    @beats = Number(response.responseJSON.beats)
-    @date = new Date(Date.parse(response.responseJSON.date))
-    this.setBeatView @beats
-    this.setFractionView(@beats - Math.floor(@beats))
-    this.dateView().update @date.toLocaleDateString()
-  setBeatView: (beats) ->
     @beatView ?= $('beats')
     @beatBar ?= $('beatBar')
+    @dateElement ?= $('date')
+    @fetch()()
+  fetch: ->
+    @fetchFun ||= ()=>
+      return if @halt == 1
+      new Ajax.Request '/beats.json',
+        method: 'get',
+        onSuccess: (response) =>
+          @update response
+          @fetch().delay 30
+  update: (response) ->
+    rj = response.responseJSON
+    @beats = Number(rj.beats)
+    @beatsAt = new Date()
+    @date = new Date(rj.date)
+    @refresh() unless @running?
+  refresh: ->
+    @running = true
+    cb = @currentBeats()
+    @setDate()
+    @setBeatView cb
+    @setBeatBar cb
+    @setFractionView(cb - Math.floor(cb))
+    window.requestAnimationFrame @refresh.bind(this)
+  currentBeats: ()->
+    now = new Date()
+    msDiff = now - @beatsAt
+    msPerDay = 1000 * 60 * 60 * 24
+    beatsPerDay = 1000
+    beatsDiff = (msDiff / msPerDay) * beatsPerDay
+    @beats + beatsDiff
+  setDate: () ->
+    return unless @date?
+    @dateElement.update @date.toLocaleDateString "en-US",
+      weekday: 'long'
+      month: 'long'
+      day: 'numeric'
+      year: 'numeric'
+  setBeatBar: (beats) ->
+    @beatBar.setStyle
+      width: "#{beats / 10.0}%"
+  setBeatView: (beats) ->
     @beatView.update Math.floor(beats)
     @beatBar.setStyle
       width: "#{beats / 10.0}%"
@@ -33,5 +60,3 @@ class MiamiBeats
     @fractionView.update Math.round(fraction * 1000)/1000
     @fractionBar.setStyle
       width: "#{fraction * 100}%"
-  dateView: ->
-    @dateElement ?= $('date')
