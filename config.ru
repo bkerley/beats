@@ -30,6 +30,10 @@ get '/miamibeats.css' do
   sass :miamibeats
 end
 
+get '/miamibeats.js' do
+   coffee :miamibeats
+end
+
 helpers do
   def miami_time
     @miami_time ||= TZInfo::Timezone.get('America/New_York')
