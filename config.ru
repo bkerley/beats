@@ -1,9 +1,6 @@
 require 'sinatra'
 require 'tzinfo'
 require 'active_support/time'
-require 'active_support/core_ext/float/rounding'
-require 'haml'
-require 'sass'
 require 'json'
 
 get '/' do

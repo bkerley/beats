@@ -1,11 +1,11 @@
-source :rubygems
+source 'https://rubygems.org/'
+
+ruby '2.2.1'
 
 gem 'sinatra'
 gem 'tzinfo'
 gem 'activesupport'
 gem 'i18n'
-
-gem "json"
 
 gem 'haml'
 gem 'sass'
