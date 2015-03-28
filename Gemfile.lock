@@ -7,38 +7,23 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.8)
-    excon (0.45.1)
+    coffee-script (2.3.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.9.1)
+    execjs (2.4.0)
     haml (4.0.6)
       tilt
-    heroku (3.30.3)
-      heroku-api (~> 0.3.19)
-      launchy (>= 0.3.2)
-      multi_json (~> 1.10)
-      netrc (>= 0.10.0)
-      rest-client (= 1.6.7)
-      rubyzip (= 0.9.9)
-    heroku-api (0.3.23)
-      excon (~> 0.44)
-      multi_json (~> 1.8)
     i18n (0.7.0)
     json (1.8.2)
-    launchy (2.4.3)
-      addressable (~> 2.3)
-    mime-types (2.4.3)
     minitest (5.5.1)
-    multi_json (1.11.0)
-    netrc (0.10.3)
+    puma (2.11.1)
+      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
     rdiscount (2.1.8)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
-    rubyzip (0.9.9)
     sass (3.4.13)
-    shotgun (0.9.1)
-      rack (>= 1.0)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -53,11 +38,11 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  coffee-script
   haml
-  heroku
   i18n
+  puma
   rdiscount
   sass
-  shotgun
   sinatra
   tzinfo
