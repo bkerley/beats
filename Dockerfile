@@ -13,4 +13,4 @@ WORKDIR /beats
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 ADD * /beats/
 COPY --from=builder /beats/Gemfile* /beats/
-CMD bundle exec puma -b tcp://0:3000
+CMD bundle exec puma -b tcp://0:8080
