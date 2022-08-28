@@ -1,9 +1,10 @@
 source 'https://rubygems.org/'
 
-ruby '~> 3.1.1'
+ruby '~> 3.1'
 
 gem 'sinatra'
 gem 'tzinfo'
+gem 'tzinfo-data'
 gem 'activesupport'
 gem 'i18n'
 
